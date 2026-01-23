@@ -1,6 +1,7 @@
 package net.eli.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.eli.tutorialmod.blocks.ModBlocks;
 import net.eli.tutorialmod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTab;
@@ -39,6 +40,7 @@ public class TutorialMod {
         MinecraftForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -55,6 +57,11 @@ public class TutorialMod {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.CERVALITE);
             event.accept(ModItems.RAW_CERVALITE);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.CERVALITE_BLOCK);
+            event.accept(ModBlocks.RAW_CERVALITE_BLOCK);
         }
 
     }
