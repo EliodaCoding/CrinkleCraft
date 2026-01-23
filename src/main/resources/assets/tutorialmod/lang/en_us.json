@@ -3,5 +3,8 @@
   "item.tutorialmod.raw_cervalite": "Raw Cervalite",
 
   "block.tutorialmod.cervalite_block": "Block of Cervalite",
-  "block.tutorialmod.raw_cervalite_block": "Block of Raw Cervalite"
+  "block.tutorialmod.raw_cervalite_block": "Block of Raw Cervalite",
+
+  "creativetab.tutorialmod.cervalite_items": "Cervalite Items",
+  "creativetab.tutorialmod.cervalite_blocks": "Cervalite Blocks"
 }

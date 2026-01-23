@@ -2,6 +2,7 @@ package net.eli.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.eli.tutorialmod.blocks.ModBlocks;
+import net.eli.tutorialmod.item.ModCreativeModTabs;
 import net.eli.tutorialmod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTab;
@@ -38,6 +39,8 @@ public class TutorialMod {
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        ModCreativeModTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
