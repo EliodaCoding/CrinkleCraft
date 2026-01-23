@@ -33,6 +33,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CERVALITE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_CERVALITE_BLOCK.get());
 
+                        pOutput.accept(ModBlocks.CERVALITE_ORE.get());
+                        pOutput.accept(ModBlocks.CERVALITE_DEEPSLATE_ORE.get());
+
                     })
                     .build());
 

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tutorialmod:cervalite_block",
+    "tutorialmod:raw_cervalite_block",
+    "tutorialmod:cervalite_ore",
+    "tutorialmod:cervalite_deepslate_ore"
+  ]
+}

@@ -5,7 +5,6 @@ import net.eli.tutorialmod.blocks.ModBlocks;
 import net.eli.tutorialmod.item.ModCreativeModTabs;
 import net.eli.tutorialmod.item.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

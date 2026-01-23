@@ -2,9 +2,11 @@ package net.eli.tutorialmod.blocks;
 
 import net.eli.tutorialmod.TutorialMod;
 import net.eli.tutorialmod.item.ModItems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,10 +23,16 @@ public class ModBlocks {
     public static final RegistryObject<Block> CERVALITE_BLOCK = registerBlock("cervalite_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
-
     public static final RegistryObject<Block> RAW_CERVALITE_BLOCK = registerBlock("raw_cervalite_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(2f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CERVALITE_ORE = registerBlock("cervalite_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2,4), BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> CERVALITE_DEEPSLATE_ORE = registerBlock("cervalite_deepslate_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3,5), BlockBehaviour.Properties.of()
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
 
     //Helper Methods
