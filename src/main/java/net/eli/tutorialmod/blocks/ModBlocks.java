@@ -1,6 +1,7 @@
 package net.eli.tutorialmod.blocks;
 
 import net.eli.tutorialmod.TutorialMod;
+import net.eli.tutorialmod.blocks.custom.MagicBlock;
 import net.eli.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -33,6 +34,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> CERVALITE_DEEPSLATE_ORE = registerBlock("cervalite_deepslate_ore",
             () -> new DropExperienceBlock(UniformInt.of(3,5), BlockBehaviour.Properties.of()
                     .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> MAGIC_BLOCK = registerBlock("magic_block",
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
 
 
     //Helper Methods

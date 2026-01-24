@@ -38,6 +38,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CERVALITE_ORE.get());
                         pOutput.accept(ModBlocks.CERVALITE_DEEPSLATE_ORE.get());
 
+                        pOutput.accept(ModBlocks.MAGIC_BLOCK.get());
+
                     })
                     .build());
 
