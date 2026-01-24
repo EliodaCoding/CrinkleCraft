@@ -24,6 +24,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CHISEL.get());
 
                         pOutput.accept(ModItems.STRAWBERRY.get());
+                        pOutput.accept(ModItems.SPIRIT_ASHES.get());
 
                     })
                     .build());
