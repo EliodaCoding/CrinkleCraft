@@ -23,6 +23,8 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.CHISEL.get());
 
+                        pOutput.accept(ModItems.STRAWBERRY.get());
+
                     })
                     .build());
 
