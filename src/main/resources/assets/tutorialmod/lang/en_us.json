@@ -15,5 +15,10 @@
   "block.tutorialmod.magic_block": "Magic Block",
 
   "creativetab.tutorialmod.cervalite_items": "Cervalite Items",
-  "creativetab.tutorialmod.cervalite_blocks": "Cervalite Blocks"
+  "creativetab.tutorialmod.cervalite_blocks": "Cervalite Blocks",
+
+  "tooltip.tutorial.magic_block.tooltip": "This block is §9magic§r",
+  "tooltip.tutorial.chisel.shift_down": "This item chisels... §eduh§r",
+  "tooltip.tutorial.chisel": "Hold §eShift§r for more info",
+  "tooltip.tutorial.strawberry": "Smells fresh and sweet"
 }
