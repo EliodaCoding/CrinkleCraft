@@ -2,9 +2,12 @@ package net.eli.tutorialmod.datagen;
 
 import net.eli.tutorialmod.TutorialMod;
 import net.eli.tutorialmod.blocks.ModBlocks;
+import net.eli.tutorialmod.blocks.custom.CervaliteLampBlock;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,6 +20,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        //"Normal" Blocks
         blockWithItem(ModBlocks.CERVALITE_BLOCK);
         blockWithItem(ModBlocks.RAW_CERVALITE_BLOCK);
 
@@ -25,6 +29,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.MAGIC_BLOCK);
 
+        //"Normal" Non-Solid blocks
         stairsBlock(ModBlocks.CERVALITE_STAIRS.get(), blockTexture(ModBlocks.CERVALITE_BLOCK.get()));
         slabBlock(ModBlocks.CERVALITE_SLAB.get(), blockTexture(ModBlocks.CERVALITE_BLOCK.get()), blockTexture(ModBlocks.CERVALITE_BLOCK.get()));
 
@@ -43,6 +48,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.CERVALITE_PRESSURE_PLATE);
         blockItem(ModBlocks.CERVALITE_FENCE_GATE);
         blockItem(ModBlocks.CERVALITE_TRAPDOOR, "_bottom");
+
+        //Multi-BlockState Blocks
+        customLamp();
+    }
+
+    private void customLamp() {
+        getVariantBuilder(ModBlocks.CERVALITE_LAMP.get()).forAllStates(state -> {
+            if(state.getValue(CervaliteLampBlock.CLICKED)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("cervalite_lamp_on",
+                        ResourceLocation.fromNamespaceAndPath(TutorialMod.MOD_ID, "block/" + "cervalite_lamp_on")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("cervalite_lamp_off",
+                        ResourceLocation.fromNamespaceAndPath(TutorialMod.MOD_ID, "block/" + "cervalite_lamp_off")))};
+            }
+        });
+        simpleBlockItem(ModBlocks.CERVALITE_LAMP.get(), models().cubeAll("cervalite_lamp_on",
+                ResourceLocation.fromNamespaceAndPath(TutorialMod.MOD_ID, "block/" + "cervalite_lamp_on")));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

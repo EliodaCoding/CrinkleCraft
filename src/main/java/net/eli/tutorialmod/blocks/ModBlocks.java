@@ -1,6 +1,7 @@
 package net.eli.tutorialmod.blocks;
 
 import net.eli.tutorialmod.TutorialMod;
+import net.eli.tutorialmod.blocks.custom.CervaliteLampBlock;
 import net.eli.tutorialmod.blocks.custom.MagicBlock;
 import net.eli.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -21,6 +22,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, TutorialMod.MOD_ID);
 
+    //"normal" blocks
     public static final RegistryObject<Block> CERVALITE_BLOCK = registerBlock("cervalite_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
@@ -28,6 +30,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(2f).requiresCorrectToolForDrops()));
 
+    //Ore Blocks
     public static final RegistryObject<Block> CERVALITE_ORE = registerBlock("cervalite_ore",
             () -> new DropExperienceBlock(UniformInt.of(2,4), BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
@@ -38,6 +41,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MAGIC_BLOCK = registerBlock("magic_block",
             () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
 
+    //Non-solid Blocks
     public static final RegistryObject<StairBlock> CERVALITE_STAIRS = registerBlock("cervalite_stairs",
             () -> new StairBlock(ModBlocks.CERVALITE_BLOCK.get().defaultBlockState(),
                     BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops()));
@@ -63,6 +67,11 @@ public class ModBlocks {
     public static final RegistryObject<TrapDoorBlock> CERVALITE_TRAPDOOR = registerBlock("cervalite_trapdoor",
             () -> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(3f)
                     .requiresCorrectToolForDrops().noOcclusion()));
+
+    //Lamp block (1st multi-BlockState)
+    public static final RegistryObject<Block> CERVALITE_LAMP = registerBlock("cervalite_lamp",
+            () -> new CervaliteLampBlock(BlockBehaviour.Properties.of().strength(3f)
+                    .lightLevel(state -> state.getValue(CervaliteLampBlock.CLICKED)?15:0)));
 
 
     //Helper Methods

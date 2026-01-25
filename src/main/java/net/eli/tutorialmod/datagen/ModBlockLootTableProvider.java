@@ -28,10 +28,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        //"Normal" block drops
         dropSelf(ModBlocks.CERVALITE_BLOCK.get());
         dropSelf(ModBlocks.RAW_CERVALITE_BLOCK.get());
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
+        dropSelf(ModBlocks.CERVALITE_LAMP.get());
 
+
+        //"Normal" Non-solid Blocks
         dropSelf(ModBlocks.CERVALITE_STAIRS.get());
         this.add(ModBlocks.CERVALITE_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.CERVALITE_SLAB.get()));
@@ -47,6 +51,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createDoorTable(ModBlocks.CERVALITE_DOOR.get()));
         dropSelf(ModBlocks.CERVALITE_TRAPDOOR.get());
 
+        //Ores
         this.add(ModBlocks.CERVALITE_ORE.get(),
                 block -> createOreDrop(ModBlocks.CERVALITE_ORE.get(), ModItems.RAW_CERVALITE.get()));
         this.add(ModBlocks.CERVALITE_DEEPSLATE_ORE.get(),

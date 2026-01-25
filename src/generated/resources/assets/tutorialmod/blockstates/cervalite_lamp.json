@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "tutorialmod:block/cervalite_lamp_off"
+    },
+    "clicked=true": {
+      "model": "tutorialmod:block/cervalite_lamp_on"
+    }
+  }
+}

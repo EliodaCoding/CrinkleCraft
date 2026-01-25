@@ -35,6 +35,7 @@ public class ModCreativeModTabs {
                     .withTabsBefore(CERVALITE_ITEMS_TABS.getId())
                     .title(Component.translatable("creativetab.tutorialmod.cervalite_blocks"))
                     .displayItems((pParameters, pOutput) -> {
+                        //Blocks
                         pOutput.accept(ModBlocks.CERVALITE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_CERVALITE_BLOCK.get());
 
@@ -43,6 +44,7 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModBlocks.MAGIC_BLOCK.get());
 
+                        //Non-Solid Blocks
                         pOutput.accept(ModBlocks.CERVALITE_STAIRS.get());
                         pOutput.accept(ModBlocks.CERVALITE_SLAB.get());
 
@@ -55,6 +57,8 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModBlocks.CERVALITE_DOOR.get());
                         pOutput.accept(ModBlocks.CERVALITE_TRAPDOOR.get());
+
+                        pOutput.accept(ModBlocks.CERVALITE_LAMP.get());
                     })
                     .build());
 

@@ -1,10 +1,11 @@
-// 1.21	2026-01-24T22:56:50.0384336	Loot Tables
+// 1.21	2026-01-25T11:40:46.6880282	Loot Tables
 23c1495dc266c1df4b17e6b9ab1eede5eaa3bafc data/tutorialmod/loot_table/blocks/cervalite_block.json
 8e5e02fc7aa6b568e450f96efb43d22a7885eae1 data/tutorialmod/loot_table/blocks/cervalite_button.json
 36bff43ca83964e7ca5bd5f991896adc6fc9bdbd data/tutorialmod/loot_table/blocks/cervalite_deepslate_ore.json
 417b278ad5d5cf99068acb1cd978b17d813a0820 data/tutorialmod/loot_table/blocks/cervalite_door.json
 76f3fde090ef52b2ee1ee496820384faebb8d3a3 data/tutorialmod/loot_table/blocks/cervalite_fence.json
 006d0e299f25fedf87ec16b5116206a33e466d6d data/tutorialmod/loot_table/blocks/cervalite_fence_gate.json
+ebbded7d57a7b782801bba4e0e695256a11665ae data/tutorialmod/loot_table/blocks/cervalite_lamp.json
 303198bb9bd548999b79b7e3b84d99b938924e96 data/tutorialmod/loot_table/blocks/cervalite_ore.json
 282a7bd599e6cf97228326dd9f0ceedea0dbeadb data/tutorialmod/loot_table/blocks/cervalite_pressure_plate.json
 4d2eb7c9ccf64c8113e410cc0c964a96dc7840ca data/tutorialmod/loot_table/blocks/cervalite_slab.json

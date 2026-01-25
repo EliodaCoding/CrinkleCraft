@@ -1,19 +1,26 @@
 {
+  //Normal item
   "item.tutorialmod.cervalite": "Cervalite",
   "item.tutorialmod.raw_cervalite": "Raw Cervalite",
 
+  //food and fuel
   "item.tutorialmod.strawberry": "Strawberry",
   "item.tutorialmod.spirit_ashes": "Spirit Ashes",
 
+  //custom item
   "item.tutorialmod.chisel": "Chisel",
 
+  //blocks
   "block.tutorialmod.cervalite_block": "Block of Cervalite",
   "block.tutorialmod.raw_cervalite_block": "Block of Raw Cervalite",
   "block.tutorialmod.cervalite_ore": "Cervalite Ore",
   "block.tutorialmod.cervalite_deepslate_ore": "Cervalite Deepslate Ore",
 
+  //custom blocks
   "block.tutorialmod.magic_block": "Magic Block",
+  "block.tutorialmod.cervalite_lamp": "Cervalite Lamp",
 
+  //non-solid blocks
   "block.tutorialmod.cervalite_stairs": "Cervalite Stairs",
   "block.tutorialmod.cervalite_slab": "Cervalite Slab",
 
@@ -30,6 +37,7 @@
   "creativetab.tutorialmod.cervalite_items": "Cervalite Items",
   "creativetab.tutorialmod.cervalite_blocks": "Cervalite Blocks",
 
+  //tooltips
   "tooltip.tutorial.magic_block.tooltip": "This block is §9magic§r",
   "tooltip.tutorial.chisel.shift_down": "This item chisels... §eduh§r",
   "tooltip.tutorial.chisel": "Hold §eShift§r for more info",

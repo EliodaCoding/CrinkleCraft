@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tutorialmod:block/cervalite_door"
+    "layer0": "tutorialmod:item/cervalite_door"
   }
 }
