@@ -1,0 +1,6 @@
+// 1.21	2026-01-24T16:22:44.4894073	Loot Tables
+23c1495dc266c1df4b17e6b9ab1eede5eaa3bafc data/tutorialmod/loot_table/blocks/cervalite_block.json
+36bff43ca83964e7ca5bd5f991896adc6fc9bdbd data/tutorialmod/loot_table/blocks/cervalite_deepslate_ore.json
+303198bb9bd548999b79b7e3b84d99b938924e96 data/tutorialmod/loot_table/blocks/cervalite_ore.json
+8cadd73280b5040d1e510cad246834ca39b6b62f data/tutorialmod/loot_table/blocks/magic_block.json
+f43b31b3d5d152d436a329fd13c89fa5bf5ab268 data/tutorialmod/loot_table/blocks/raw_cervalite_block.json

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "cervalite",
+  "ingredient": {
+    "item": "tutorialmod:cervalite_deepslate_ore"
+  },
+  "result": {
+    "id": "tutorialmod:cervalite"
+  }
+}
