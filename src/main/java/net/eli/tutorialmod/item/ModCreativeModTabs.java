@@ -18,21 +18,30 @@ public class ModCreativeModTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CERVALITE.get()))
                     .title(Component.translatable("creativetab.tutorialmod.cervalite_items"))
                     .displayItems((pParameters, pOutput) -> {
+                        //generic
                         pOutput.accept(ModItems.CERVALITE.get());
                         pOutput.accept(ModItems.RAW_CERVALITE.get());
 
-                        pOutput.accept(ModItems.CHISEL.get());
-
+                        //fuel and food
                         pOutput.accept(ModItems.STRAWBERRY.get());
                         pOutput.accept(ModItems.SPIRIT_ASHES.get());
 
+                        //tools
                         pOutput.accept(ModItems.CERVALITE_SWORD.get());
                         pOutput.accept(ModItems.CERVALITE_AXE.get());
                         pOutput.accept(ModItems.CERVALITE_PICKAXE.get());
                         pOutput.accept(ModItems.CERVALITE_SHOVEL.get());
                         pOutput.accept(ModItems.CERVALITE_HOE.get());
 
+                        //custom tools
+                        pOutput.accept(ModItems.CHISEL.get());
                         pOutput.accept(ModItems.CERVALITE_HAMMER.get());
+
+                        //armor
+                        pOutput.accept(ModItems.CERVALITE_HELMET.get());
+                        pOutput.accept(ModItems.CERVALITE_CHESTPLATE.get());
+                        pOutput.accept(ModItems.CERVALITE_LEGGINGS.get());
+                        pOutput.accept(ModItems.CERVALITE_BOOTS.get());
 
                     })
                     .build());
@@ -50,6 +59,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CERVALITE_ORE.get());
                         pOutput.accept(ModBlocks.CERVALITE_DEEPSLATE_ORE.get());
 
+                        //custom block
                         pOutput.accept(ModBlocks.MAGIC_BLOCK.get());
 
                         //Non-Solid Blocks
@@ -66,6 +76,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CERVALITE_DOOR.get());
                         pOutput.accept(ModBlocks.CERVALITE_TRAPDOOR.get());
 
+                        //multistate
                         pOutput.accept(ModBlocks.CERVALITE_LAMP.get());
                     })
                     .build());

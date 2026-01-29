@@ -18,6 +18,12 @@
   "item.tutorialmod.cervalite_hoe": "Cervalite Hoe",
   "item.tutorialmod.cervalite_hammer": "Cervalite Hammer",
 
+  //armor
+  "item.tutorialmod.cervalite_helmet": "Cervalite Helmet",
+  "item.tutorialmod.cervalite_chestplate": "Cervalite Chestplate",
+  "item.tutorialmod.cervalite_leggings": "Cervalite Leggings",
+  "item.tutorialmod.cervalite_boots": "Cervalite Boots",
+
   //blocks
   "block.tutorialmod.cervalite_block": "Block of Cervalite",
   "block.tutorialmod.raw_cervalite_block": "Block of Raw Cervalite",

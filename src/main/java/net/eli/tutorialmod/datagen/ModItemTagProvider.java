@@ -6,6 +6,7 @@ import net.eli.tutorialmod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -29,5 +30,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.RAW_CERVALITE.get())
                 .add(Items.EMERALD)
                 .add(Items.QUARTZ);
+
+        tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.CERVALITE_HELMET.get())
+                .add(ModItems.CERVALITE_CHESTPLATE.get())
+                .add(ModItems.CERVALITE_LEGGINGS.get())
+                .add(ModItems.CERVALITE_BOOTS.get());
     }
+
+
 }
