@@ -37,11 +37,14 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CHISEL.get());
                         pOutput.accept(ModItems.CERVALITE_HAMMER.get());
 
-                        //armor
+                        //player armor
                         pOutput.accept(ModItems.CERVALITE_HELMET.get());
                         pOutput.accept(ModItems.CERVALITE_CHESTPLATE.get());
                         pOutput.accept(ModItems.CERVALITE_LEGGINGS.get());
                         pOutput.accept(ModItems.CERVALITE_BOOTS.get());
+
+                        //animal armor
+                        pOutput.accept(ModItems.CERVALITE_HORSE_ARMOR.get());
 
                     })
                     .build());

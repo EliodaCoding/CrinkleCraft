@@ -1,4 +1,4 @@
-// 1.21	2026-01-28T21:36:57.6228525	Item Models: tutorialmod
+// 1.21	2026-02-03T17:58:18.8964294	Item Models: tutorialmod
 03a2efa6bebfb549c2fb5176685688797021f1b1 assets/tutorialmod/models/item/cervalite.json
 1f63aed8799db850dfe0fc0ae264e0979b698fec assets/tutorialmod/models/item/cervalite_axe.json
 42b31a3a9f69a068ddc9c5c751a9c5c90da7163d assets/tutorialmod/models/item/cervalite_boots.json
@@ -39,6 +39,7 @@ d034cdd3d8ecfc8d283bcb0b8f914ddd2e856473 assets/tutorialmod/models/item/cervalit
 3f882b2bdc1c9023e8a38a2bed0584863e245168 assets/tutorialmod/models/item/cervalite_helmet_quartz_trim.json
 9ea43204d932e2c084b0653be42b1e6b3e261ef7 assets/tutorialmod/models/item/cervalite_helmet_redstone_trim.json
 c90a151e7442cf4ed70906b04e90d3c5c316bd0e assets/tutorialmod/models/item/cervalite_hoe.json
+7a1b17b087c70b63dbf8fde99bf6c2c09a3bea6a assets/tutorialmod/models/item/cervalite_horse_armor.json
 9a920e4e460c39e7bf293985ec4d495a64619aa2 assets/tutorialmod/models/item/cervalite_leggings.json
 09d0b6b08c7ebc7a035d5f2fe5717fb8c260e8b2 assets/tutorialmod/models/item/cervalite_leggings_amethyst_trim.json
 088ffa68b8f5ef392cd4c5ce586be0283790d7c8 assets/tutorialmod/models/item/cervalite_leggings_copper_trim.json

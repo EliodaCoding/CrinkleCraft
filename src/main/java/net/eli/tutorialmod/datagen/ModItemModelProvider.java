@@ -70,11 +70,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         //custom tools
         handheldItem(ModItems.CERVALITE_HAMMER);
 
-        //armor
+        //player armor
         trimmedArmorItem(ModItems.CERVALITE_HELMET);
         trimmedArmorItem(ModItems.CERVALITE_CHESTPLATE);
         trimmedArmorItem(ModItems.CERVALITE_LEGGINGS);
         trimmedArmorItem(ModItems.CERVALITE_BOOTS);
+
+        //animal armor
+        basicItem(ModItems.CERVALITE_HORSE_ARMOR.get());
     }
 
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {

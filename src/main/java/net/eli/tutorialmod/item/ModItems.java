@@ -60,7 +60,7 @@ public class ModItems {
             () -> new HammerItem(ModToolTiers.CERVALITE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(ModToolTiers.CERVALITE, 8, -3.5f))));
 
-    //armor
+    //player armor
     public static final RegistryObject<Item> CERVALITE_HELMET = ITEMS.register("cervalite_helmet",
             () -> new ModArmorItem(ModArmorMaterials.CERVALITE_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(18))));
@@ -73,6 +73,11 @@ public class ModItems {
     public static final RegistryObject<Item> CERVALITE_BOOTS = ITEMS.register("cervalite_boots",
             () -> new ArmorItem(ModArmorMaterials.CERVALITE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(18))));
+
+    //animal armor
+    public static final RegistryObject<Item> CERVALITE_HORSE_ARMOR = ITEMS.register("cervalite_horse_armor",
+            () -> new AnimalArmorItem(ModArmorMaterials.CERVALITE_ARMOR_MATERIAL, AnimalArmorItem.BodyType.EQUESTRIAN,
+                    false, new Item.Properties().stacksTo(1)));
 
 
     public static void register(IEventBus eventBus) {
