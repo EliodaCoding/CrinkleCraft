@@ -3,6 +3,7 @@ package net.eli.tutorialmod;
 import com.mojang.logging.LogUtils;
 import net.eli.tutorialmod.blocks.ModBlocks;
 import net.eli.tutorialmod.component.ModDataComponentTypes;
+import net.eli.tutorialmod.effect.ModEffects;
 import net.eli.tutorialmod.item.ModCreativeModTabs;
 import net.eli.tutorialmod.item.ModItems;
 import net.eli.tutorialmod.sound.ModSounds;
@@ -49,6 +50,7 @@ public class TutorialMod {
 
         ModDataComponentTypes.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

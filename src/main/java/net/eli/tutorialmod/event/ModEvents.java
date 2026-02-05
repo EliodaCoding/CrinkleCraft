@@ -1,6 +1,9 @@
 package net.eli.tutorialmod.event;
 
 import net.eli.tutorialmod.TutorialMod;
+import net.eli.tutorialmod.effect.ComfortedEffect;
+import net.eli.tutorialmod.effect.ModEffects;
+import net.minecraft.core.Holder;
 import net.eli.tutorialmod.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -12,6 +15,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -57,6 +63,31 @@ public class ModEvents {
                 sheep.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 5));
                 player.getMainHandItem().shrink(1);
             }
+        }
+    }
+
+    // Comforted effect: pause healing when player attacks
+    @SubscribeEvent
+    public static void onAttackEntity(AttackEntityEvent event) {
+        Player player = event.getEntity();
+        if (player.hasEffect(Holder.direct(ModEffects.COMFORTED_EFFECT.get()))) {
+            ComfortedEffect.recordDisrupt(player);
+        }
+    }
+
+    // Comforted effect: pause healing when player takes knockback
+    @SubscribeEvent
+    public static void onLivingKnockBack(LivingKnockBackEvent event) {
+        if (event.getEntity() instanceof Player player && player.hasEffect(Holder.direct(ModEffects.COMFORTED_EFFECT.get()))) {
+            ComfortedEffect.recordDisrupt(player);
+        }
+    }
+
+    // Clean up Comforted per-player data when effect is removed
+    @SubscribeEvent
+    public static void onMobEffectRemove(MobEffectEvent.Remove event) {
+        if (event.getEffect() == ModEffects.COMFORTED_EFFECT.get() && event.getEntity() instanceof Player player) {
+            ComfortedEffect.clearPlayerData(player.getUUID());
         }
     }
 }

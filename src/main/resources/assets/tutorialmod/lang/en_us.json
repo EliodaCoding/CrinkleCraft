@@ -66,6 +66,10 @@
   "item.tutorialmod.upside_down_music_disc": "Upside Down Disc",
   "item.tutorialmod.upside_down_music_disc.desc": "Black Gryphon & Baasik - Upside Down",
 
+  //effects
+  "effect.tutorialmod.slimey": "Slimey",
+  "effect.tutorialmod.comforted": "Comforted",
+
   //tooltips
   "tooltip.tutorial.magic_block.tooltip": "This block is §9magic§r",
   "tooltip.tutorial.chisel.shift_down": "This item chisels... §eduh§r",
