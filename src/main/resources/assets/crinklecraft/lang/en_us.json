@@ -1,0 +1,51 @@
+{
+  "creativetab.crinklecraft.main": "CrinkleCraft",
+
+  "message.crinklecraft.contract.chat1": "[CrinkleCraft] CrinkleCraft was created for lighthearted, age-regressive themed fun in a safe community setting. Keep it cozy —stuffie- energy only.",
+  "message.crinklecraft.contract.chat2": "[CrinkleCraft] This mod does NOT endorse, encourage, or condone any explicit, sexual, or illegal content. By signing, you acknowledge you understand this mod's intended purpose and agree to use it responsibly.",
+  "message.crinklecraft.contract.sign_hint": "[CrinkleCraft] To accept: /crinklecraft contract sign <secret> (the secret word is in the contract above)",
+  "command.crinklecraft.contract.signed": "Contract signed. Thank you for playing responsibly!",
+  "command.crinklecraft.contract.wrong_secret": "Incorrect secret word. Please read the contract and try again.",
+
+  "item.crinklecraft.diaper": "Diaper",
+  "item.crinklecraft.diaper_armor": "Diaper (worn)",
+  "item.crinklecraft.diaper.uses": "%s / %s uses",
+  "item.crinklecraft.pullups": "Pull-Ups",
+  "item.crinklecraft.baby_bottle": "Baby Bottle",
+  "item.crinklecraft.sippie_cup": "Sippie Cup",
+  "item.crinklecraft.bottle.tooltip.apple_juice": "Contains apple juice (its tasty)",
+  "item.crinklecraft.bottle.tooltip.potions": "%s / %s potions",
+  "item.crinklecraft.baby_bottle.tooltip.milk": "Contains milk (clears effects when drunk)",
+  "item.crinklecraft.baby_bottle.tooltip.potions": "%s / %s potions",
+  "item.crinklecraft.stuffie": "Stuffie",
+  "item.crinklecraft.pacifier": "Pacifier",
+  "item.crinklecraft.mittens": "Mittens",
+
+  "effect.crinklecraft.comforted": "Comforted",
+
+  "key.crinklecraft.hold_it": "Hold It",
+  "key.crinklecraft.chose_diaper": "Use Diaper",
+  "key.categories.crinklecraft": "CrinkleCraft",
+
+  "message.crinklecraft.accident.nearby.absorbed": "You hear a hiss nearby.",
+  "message.crinklecraft.accident.nearby.leaked": "You hear drops of water landing nearby...",
+  "message.crinklecraft.accident.self.absorbed": "You hear a hiss and notice your underwear got warmer.",
+  "message.crinklecraft.accident.self.leaked": "You feel your protection leak and pee run down your leg onto the floor.",
+  "command.crinklecraft.cleanup.success": "You've cleaned up.",
+  "command.crinklecraft.cleanup.not_wet": "You're not wet... yet",
+  "effect.crinklecraft.wet": "Wet",
+  "command.crinklecraft.diaper.success": "You used your diaper. Are you even trying to make it to the potty?",
+  "command.crinklecraft.diaper.not_in_check": "You are not in a potty skill check right now.",
+  "command.crinklecraft.diaper.no_diaper": "You don't have a diaper equipped. Get one one before accidents happen",
+  "command.crinklecraft.diaper.already_used": "Your diaper is already used up to capacity. Get a change quick",
+  "command.crinklecraft.diaper.gauge_too_low": "Pee or mess gauge must be at least %s%% to use diaper.",
+  "message.crinklecraft.potty_check.warning": "You feel an urgent need... (%s%%)",
+
+  "command.crinklecraft.messing.enabled": "Messing mechanic enabled.",
+  "command.crinklecraft.messing.disabled": "Messing mechanic disabled.",
+  "command.crinklecraft.holdit.success": "You held it!",
+  "command.crinklecraft.holdit.not_in_check": "You are not in a potty skill check right now.",
+  "command.crinklecraft.chart.header": "=== Potty Chart ===",
+  "item.crinklecraft.potty_chart": "Potty Chart",
+  "item.crinklecraft.potty_chart.tooltip": "Right-click to view your potty chart (successes, accidents, stars)"
+}

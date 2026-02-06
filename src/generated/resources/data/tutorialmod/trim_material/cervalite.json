@@ -1,9 +1,0 @@
-{
-  "asset_name": "cervalite",
-  "description": {
-    "color": "#02BA1A",
-    "translate": "trim_material.tutorialmod.cervalite"
-  },
-  "ingredient": "tutorialmod:cervalite",
-  "item_model_index": 0.7
-}

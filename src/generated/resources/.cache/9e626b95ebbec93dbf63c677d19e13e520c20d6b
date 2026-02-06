@@ -1,9 +1,0 @@
-// 1.21	2026-01-28T18:36:25.6427571	Tags for minecraft:block mod id tutorialmod
-d3b370d584f1ec0261af810c78213549af946ae4 data/minecraft/tags/block/fences.json
-1d66f133f437211db1eb4edd8afec26fa76d9df1 data/minecraft/tags/block/fence_gates.json
-53e347856dd853efecbdc9fceb2d99bf4e51f18c data/minecraft/tags/block/mineable/pickaxe.json
-0c178b61165d6038b38cb7a26a45d1c6ff7bdde8 data/minecraft/tags/block/needs_diamond_tool.json
-cfc3c1ae89127d253443b3e8cc55259fad9466a4 data/minecraft/tags/block/needs_iron_tool.json
-099ae56a28da883163576b5dec89e74d43266773 data/minecraft/tags/block/walls.json
-d90a8d5f1d2ebbed30bd54e471ae1ff924616c37 data/tutorialmod/tags/block/incorrect_for_cervalite_tool.json
-1e9dcc4058611e9a3015c8289daac4cd74c1f592 data/tutorialmod/tags/block/needs_cervalite_tool.json

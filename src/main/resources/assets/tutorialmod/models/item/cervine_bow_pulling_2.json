@@ -1,6 +1,0 @@
-{
-  "parent": "tutorialmod:item/cervine_bow",
-  "textures": {
-    "layer0": "tutorialmod:item/cervine_bow_pulling_2"
-  }
-}

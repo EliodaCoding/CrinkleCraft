@@ -1,8 +1,0 @@
-{
-  "asset_id": "tutorialmod:cervine",
-  "decal": false,
-  "description": {
-    "translate": "trim_pattern.tutorialmod.cervine"
-  },
-  "template_item": "tutorialmod:cervine_armor_trim_smithing_template"
-}

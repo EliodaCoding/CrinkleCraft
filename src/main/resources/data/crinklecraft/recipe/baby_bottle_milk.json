@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "crinklecraft:baby_bottle" },
+    { "item": "minecraft:milk_bucket" }
+  ],
+  "result": {
+    "id": "crinklecraft:baby_bottle",
+    "count": 1,
+    "components": {
+      "crinklecraft:bottle_contents": {
+        "milk": true,
+        "effects": [],
+        "potion_count": 0
+      }
+    }
+  }
+}

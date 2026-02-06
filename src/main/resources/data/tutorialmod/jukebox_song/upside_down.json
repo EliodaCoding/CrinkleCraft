@@ -1,8 +1,0 @@
-{
-  "comparator_output": 6,
-  "description": {
-  "translate": "item.tutorialmod.upside_down_music_disc.desc"
-  },
-  "length_in_seconds": 163.0,
-  "sound_event": "tutorialmod:upside_down"
-}

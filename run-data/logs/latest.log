@@ -1,29 +1,29 @@
-[04Feb2026 18:10:20.585] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\eliot\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, tutorialmod, --all, --output, C:\Users\eliot\Desktop\Projects\Modding\1.21 Tutorial Mod\src\generated\resources, --existing, C:\Users\eliot\Desktop\Projects\Modding\1.21 Tutorial Mod\src\main\resources]
-[04Feb2026 18:10:20.586] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.9+10-LTS
-[04Feb2026 18:10:20.587] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[04Feb2026 18:10:20.662] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[04Feb2026 18:10:20.725] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/eliot/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[04Feb2026 18:10:21.275] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[04Feb2026 18:10:21.852] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\eliot\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, tutorialmod, --all, --output, C:\Users\eliot\Desktop\Projects\Modding\1.21 Tutorial Mod\src\generated\resources, --existing, C:\Users\eliot\Desktop\Projects\Modding\1.21 Tutorial Mod\src\main\resources]
-[04Feb2026 18:10:25.482] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
-[04Feb2026 18:10:25.482] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
-[04Feb2026 18:10:25.503] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[04Feb2026 18:10:25.975] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [tutorialmod]
-[04Feb2026 18:10:26.026] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/eliot/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1/forge-1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[04Feb2026 18:10:26.027] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/eliot/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1/forge-1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[04Feb2026 18:10:26.189] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[04Feb2026 18:10:26.288] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 98 ms
-[04Feb2026 18:10:26.288] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[04Feb2026 18:10:26.327] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 39 ms
-[04Feb2026 18:10:26.327] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id tutorialmod
-[04Feb2026 18:10:26.356] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id tutorialmod finished after 29 ms
-[04Feb2026 18:10:26.357] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id tutorialmod
-[04Feb2026 18:10:26.359] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id tutorialmod finished after 2 ms
-[04Feb2026 18:10:26.359] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: tutorialmod
-[04Feb2026 18:10:26.383] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: tutorialmod finished after 24 ms
-[04Feb2026 18:10:26.384] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: tutorialmod
-[04Feb2026 18:10:26.499] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: tutorialmod finished after 114 ms
-[04Feb2026 18:10:26.499] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[04Feb2026 18:10:26.528] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 29 ms
-[04Feb2026 18:10:26.528] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 339 ms
-[04Feb2026 18:10:26.533] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 190, old count: 190, new count: 191, removed stale: 0, written: 0
+[04Feb2026 22:41:09.083] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\eliot\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, crinklecraft, --all, --output, C:\Users\eliot\Desktop\Projects\Modding\1.21 Modding by Cursor\src\generated\resources, --existing, C:\Users\eliot\Desktop\Projects\Modding\1.21 Modding by Cursor\src\main\resources]
+[04Feb2026 22:41:09.083] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.9+10-LTS
+[04Feb2026 22:41:09.083] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[04Feb2026 22:41:09.147] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[04Feb2026 22:41:09.210] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/eliot/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[04Feb2026 22:41:09.835] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[04Feb2026 22:41:10.420] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\eliot\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, crinklecraft, --all, --output, C:\Users\eliot\Desktop\Projects\Modding\1.21 Modding by Cursor\src\generated\resources, --existing, C:\Users\eliot\Desktop\Projects\Modding\1.21 Modding by Cursor\src\main\resources]
+[04Feb2026 22:41:13.899] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
+[04Feb2026 22:41:13.899] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
+[04Feb2026 22:41:13.917] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[04Feb2026 22:41:14.250] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [crinklecraft]
+[04Feb2026 22:41:14.298] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/eliot/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1/forge-1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[04Feb2026 22:41:14.298] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/eliot/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1/forge-1.21-51.0.33_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[04Feb2026 22:41:14.456] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[04Feb2026 22:41:14.519] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 61 ms
+[04Feb2026 22:41:14.519] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[04Feb2026 22:41:14.519] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 0 ms
+[04Feb2026 22:41:14.519] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id crinklecraft
+[04Feb2026 22:41:14.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id crinklecraft finished after 6 ms
+[04Feb2026 22:41:14.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id crinklecraft
+[04Feb2026 22:41:14.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id crinklecraft finished after 1 ms
+[04Feb2026 22:41:14.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: crinklecraft
+[04Feb2026 22:41:14.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: crinklecraft finished after 5 ms
+[04Feb2026 22:41:14.535] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: crinklecraft
+[04Feb2026 22:41:14.693] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: crinklecraft finished after 147 ms
+[04Feb2026 22:41:14.693] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[04Feb2026 22:41:14.693] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 0 ms
+[04Feb2026 22:41:14.693] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 225 ms
+[04Feb2026 22:41:14.693] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 9, old count: 9, new count: 10, removed stale: 0, written: 0

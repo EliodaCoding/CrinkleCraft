@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "tutorialmod:block/cervalite_block",
-    "side": "tutorialmod:block/cervalite_block",
-    "top": "tutorialmod:block/cervalite_block"
-  }
-}
