@@ -3,7 +3,6 @@ package net.eli.crinklecraft.event;
 import net.eli.crinklecraft.CrinkleCraft;
 import net.eli.crinklecraft.effect.ComfortedEffect;
 import net.eli.crinklecraft.effect.ModEffects;
-import net.eli.crinklecraft.item.ModItems;
 import net.eli.crinklecraft.item.custom.MittensItem;
 import net.eli.crinklecraft.item.custom.StuffieItem;
 import net.eli.crinklecraft.potty.PottySavedData;
@@ -18,28 +17,20 @@ import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 @Mod.EventBusSubscriber(modid = CrinkleCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
-    /** Sync diaper visual to leggings slot when player logs in with diaper equipped. */
-    @SubscribeEvent
-    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
-        PottySavedData data = PottySavedData.get(serverPlayer.serverLevel());
-        PottyPlayerData playerData = data.getOrCreate(serverPlayer.getUUID());
-        if (playerData.getEquippedDiaper().isEmpty()) return;
-        ItemStack leggings = serverPlayer.getInventory().getArmor(1);
-        if (leggings.is(ModItems.DIAPER_ARMOR.get())) return;
-        if (!leggings.isEmpty())
-            playerData.setStoredLeggings(leggings.copy());
-        serverPlayer.getInventory().armor.set(1, new ItemStack(ModItems.DIAPER_ARMOR.get()));
-        data.markDirty();
-    }
+    private static final int STUFFIE_HOLD_TICKS_REQUIRED = 15 * 20;  // 15 seconds
+    private static final int COMFORTED_DURATION_TICKS = 15 * 20;     // 15 seconds
+    private static final Map<UUID, Integer> stuffieHoldTicks = new HashMap<>();
 
     /** True if player has mittens in chestplate slot (blocks all interactions). */
     private static boolean isWearingMittens(Player player) {
@@ -47,7 +38,7 @@ public class ModEvents {
         return !chest.isEmpty() && chest.getItem() instanceof MittensItem;
     }
 
-    // Stuffie: when held in main or off hand, apply Comforted
+    // Stuffie: hold for 15 sec then get Comforted for 15 sec (no spam)
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
@@ -56,8 +47,17 @@ public class ModEvents {
         ItemStack off = player.getOffhandItem();
         boolean holdingStuffie = (!main.isEmpty() && main.getItem() instanceof StuffieItem)
                 || (!off.isEmpty() && off.getItem() instanceof StuffieItem);
+
+        int ticks = stuffieHoldTicks.getOrDefault(player.getUUID(), 0);
         if (holdingStuffie) {
-            player.addEffect(new MobEffectInstance(Holder.direct(ModEffects.COMFORTED_EFFECT.get()), 100, 0, true, true));
+            ticks++;
+            if (ticks >= STUFFIE_HOLD_TICKS_REQUIRED) {
+                player.addEffect(new MobEffectInstance(Holder.direct(ModEffects.COMFORTED_EFFECT.get()), COMFORTED_DURATION_TICKS, 0, true, true));
+                ticks = 0;
+            }
+            stuffieHoldTicks.put(player.getUUID(), ticks);
+        } else {
+            if (ticks != 0) stuffieHoldTicks.put(player.getUUID(), 0);
         }
     }
 
@@ -93,8 +93,6 @@ public class ModEvents {
             ItemStack diaper = playerData.getEquippedDiaper();
             if (!diaper.isEmpty()) {
                 playerData.setEquippedDiaper(ItemStack.EMPTY);
-                player.getInventory().armor.set(1, playerData.getStoredLeggings().copy());
-                playerData.setStoredLeggings(ItemStack.EMPTY);
                 data.markDirty();
                 if (!player.getInventory().add(diaper)) {
                     player.drop(diaper, false);

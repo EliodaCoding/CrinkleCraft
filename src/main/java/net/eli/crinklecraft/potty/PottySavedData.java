@@ -47,8 +47,6 @@ public class PottySavedData extends SavedData {
             pd.setAccidentCount(entry.contains("accident_count") ? entry.getInt("accident_count") : 0);
             if (entry.contains("diaper"))
                 pd.setEquippedDiaper(ItemStack.parse(registries, entry.getCompound("diaper")).orElse(ItemStack.EMPTY));
-            if (entry.contains("stored_leggings"))
-                pd.setStoredLeggings(ItemStack.parse(registries, entry.getCompound("stored_leggings")).orElse(ItemStack.EMPTY));
             data.playerData.put(uuid, pd);
         }
         return data;
@@ -70,8 +68,6 @@ public class PottySavedData extends SavedData {
             entry.putInt("accident_count", e.getValue().getAccidentCount());
             if (!e.getValue().getEquippedDiaper().isEmpty())
                 entry.put("diaper", e.getValue().getEquippedDiaper().save(registries));
-            if (!e.getValue().getStoredLeggings().isEmpty())
-                entry.put("stored_leggings", e.getValue().getStoredLeggings().save(registries));
             list.add(entry);
         }
         tag.put("players", list);

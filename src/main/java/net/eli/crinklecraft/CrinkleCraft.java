@@ -39,6 +39,7 @@ public class CrinkleCraft {
         ModDataComponentTypes.register(modEventBus);
         ModSounds.register(modEventBus);
         ModEffects.register(modEventBus);
+        net.eli.crinklecraft.menu.ModMenuTypes.register(modEventBus);
         // HUD + networking: Forge 1.21 API differs - TODO add PottyHudOverlay when RegisterGuiLayersEvent/SimpleChannel available
 
         modEventBus.addListener(this::addCreative);
@@ -70,16 +71,25 @@ public class CrinkleCraft {
                 com.mojang.blaze3d.platform.InputConstants.Type.KEYSYM,
                 org.lwjgl.glfw.GLFW.GLFW_KEY_G,
                 "key.categories.crinklecraft");
+        public static final net.minecraft.client.KeyMapping DIAPER_SLOT = new net.minecraft.client.KeyMapping(
+                "key.crinklecraft.diaper_slot",
+                com.mojang.blaze3d.platform.InputConstants.Type.KEYSYM,
+                org.lwjgl.glfw.GLFW.GLFW_KEY_B,
+                "key.categories.crinklecraft");
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+            event.enqueueWork(() -> net.minecraft.client.gui.screens.MenuScreens.register(
+                    net.eli.crinklecraft.menu.ModMenuTypes.DIAPER_SLOT.get(),
+                    net.eli.crinklecraft.client.DiaperSlotScreen::new));
         }
 
         @SubscribeEvent
         public static void registerKeyMappings(net.minecraftforge.client.event.RegisterKeyMappingsEvent event) {
             event.register(HOLD_IT);
             event.register(CHOSE_DIAPER);
+            event.register(DIAPER_SLOT);
         }
     }
 }

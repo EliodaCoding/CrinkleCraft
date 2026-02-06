@@ -1,1 +1,12 @@
-{}
+{
+  "stuffie_squeak": {
+    "sounds": [
+      {
+        "name": "crinklecraft:stuffie_squeak",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.crinklecraft.stuffie_squeak"
+  }
+}

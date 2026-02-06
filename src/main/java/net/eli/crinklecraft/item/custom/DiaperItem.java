@@ -1,7 +1,6 @@
 package net.eli.crinklecraft.item.custom;
 
 import net.eli.crinklecraft.component.ModDataComponentTypes;
-import net.eli.crinklecraft.item.ModItems;
 import net.eli.crinklecraft.potty.PottySavedData;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -79,11 +78,6 @@ public class DiaperItem extends Item {
             ItemStack toEquip = stack.copyWithCount(1);
             playerData.setEquippedDiaper(toEquip);
             stack.shrink(1);
-            ItemStack leggings = serverPlayer.getInventory().getArmor(1);
-            if (!leggings.isEmpty() && !leggings.is(ModItems.DIAPER_ARMOR.get())) {
-                playerData.setStoredLeggings(leggings.copy());
-            }
-            serverPlayer.getInventory().armor.set(1, new ItemStack(ModItems.DIAPER_ARMOR.get()));
             serverPlayer.removeEffect(net.minecraft.core.Holder.direct(net.eli.crinklecraft.effect.ModEffects.WET_EFFECT.get()));
             data.markDirty();
             return InteractionResultHolder.success(player.getItemInHand(hand));

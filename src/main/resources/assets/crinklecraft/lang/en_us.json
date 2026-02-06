@@ -8,7 +8,6 @@
   "command.crinklecraft.contract.wrong_secret": "Incorrect secret word. Please read the contract and try again.",
 
   "item.crinklecraft.diaper": "Diaper",
-  "item.crinklecraft.diaper_armor": "Diaper (worn)",
   "item.crinklecraft.diaper.uses": "%s / %s uses",
   "item.crinklecraft.pullups": "Pull-Ups",
   "item.crinklecraft.baby_bottle": "Baby Bottle",
@@ -17,7 +16,9 @@
   "item.crinklecraft.bottle.tooltip.potions": "%s / %s potions",
   "item.crinklecraft.baby_bottle.tooltip.milk": "Contains milk (clears effects when drunk)",
   "item.crinklecraft.baby_bottle.tooltip.potions": "%s / %s potions",
-  "item.crinklecraft.stuffie": "Stuffie",
+  "item.crinklecraft.stuffie_brown_bear": "Brown Bear Stuffie",
+  "item.crinklecraft.stuffie_blue_shark": "Blue Shork",
+  "subtitles.crinklecraft.stuffie_squeak": "Stuffie squeaks",
   "item.crinklecraft.pacifier": "Pacifier",
   "item.crinklecraft.mittens": "Mittens",
 
@@ -25,7 +26,9 @@
 
   "key.crinklecraft.hold_it": "Hold It",
   "key.crinklecraft.chose_diaper": "Use Diaper",
+  "key.crinklecraft.diaper_slot": "Diaper Slot",
   "key.categories.crinklecraft": "CrinkleCraft",
+  "container.crinklecraft.diaper_slot": "Diaper Slot",
 
   "message.crinklecraft.accident.nearby.absorbed": "You hear a hiss nearby.",
   "message.crinklecraft.accident.nearby.leaked": "You hear drops of water landing nearby...",

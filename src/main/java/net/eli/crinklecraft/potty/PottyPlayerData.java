@@ -49,8 +49,6 @@ public class PottyPlayerData {
     private float pottyCheckThreshold;
     /** Equipped diaper (custom slot). Serialized in PottySavedData. */
     private ItemStack equippedDiaper;
-    /** Leggings that were in the slot before we put diaper display there. Restored on unequip. */
-    private ItemStack storedLeggings;
     /** Temporary boost to pee fill after drinking (not persisted). */
     private int peeBoostTicks;
     private float peeBoostMultiplier;
@@ -80,7 +78,6 @@ public class PottyPlayerData {
         this.pottyCheckIsPee = true;
         this.pottyCheckThreshold = 0;
         this.equippedDiaper = ItemStack.EMPTY;
-        this.storedLeggings = ItemStack.EMPTY;
         this.peeBoostTicks = 0;
         this.peeBoostMultiplier = 1f;
         this.successCount = 0;
@@ -194,8 +191,6 @@ public class PottyPlayerData {
 
     public ItemStack getEquippedDiaper() { return equippedDiaper == null ? ItemStack.EMPTY : equippedDiaper; }
     public void setEquippedDiaper(ItemStack stack) { this.equippedDiaper = stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
-    public ItemStack getStoredLeggings() { return storedLeggings == null ? ItemStack.EMPTY : storedLeggings; }
-    public void setStoredLeggings(ItemStack stack) { this.storedLeggings = stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
 
     private static float clamp(float v) {
         return Math.max(0f, Math.min(MAX_GAUGE, v));

@@ -2,15 +2,20 @@ package net.eli.crinklecraft.potty;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.core.Holder;
-import net.eli.crinklecraft.CrinkleCraft;
 import net.eli.crinklecraft.contract.ContractSavedData;
 import net.eli.crinklecraft.effect.ModEffects;
+import net.eli.crinklecraft.menu.DiaperSlotMenu;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.ItemStackHandler;
 
 /**
  * CrinkleCraft commands: /crinklecraft contract sign, messing enable/disable, gauge, holdit.
@@ -40,6 +45,8 @@ public class CrinkleCraftCommand {
                                 .executes(ctx -> holdIt(ctx.getSource())))
                         .then(Commands.literal("diaper")
                                 .executes(ctx -> choseDiaper(ctx.getSource())))
+                        .then(Commands.literal("diaper_slot")
+                                .executes(ctx -> openDiaperSlot(ctx.getSource())))
                         .then(Commands.literal("chart")
                                 .executes(ctx -> showChart(ctx.getSource())))
                         .then(Commands.literal("cleanup")
@@ -126,16 +133,7 @@ public class CrinkleCraftCommand {
             return 0;
         }
         di.useOne(diaper);
-        if (di.isFullyUsed(diaper)) {
-            playerData.setEquippedDiaper(ItemStack.EMPTY);
-            player.getInventory().armor.set(1, playerData.getStoredLeggings().copy());
-            playerData.setStoredLeggings(ItemStack.EMPTY);
-            if (!player.getInventory().add(diaper)) {
-                player.drop(diaper, false);
-            }
-        } else {
-            playerData.setEquippedDiaper(diaper);
-        }
+        playerData.setEquippedDiaper(diaper); // keep diaper in slot even when fully used
 
         if (playerData.isInPottyCheck()) {
             if (playerData.isPottyCheckPee()) {
@@ -189,6 +187,32 @@ public class CrinkleCraftCommand {
         source.sendSuccess(() -> Component.translatable("command.crinklecraft.chart.header"), false);
         source.sendSuccess(() -> Component.literal("  ★ Stars: " + stars + " | ✓ Held it: " + successes + " | ✗ Accidents: " + accidents), false);
         source.sendSuccess(() -> Component.literal("  Continence: " + String.format("%.1f", playerData.getContinence()) + " / 100"), false);
+        return 1;
+    }
+
+    /** Opens the diaper slot menu for the executing player. */
+    private static int openDiaperSlot(CommandSourceStack source) {
+        if (!(source.getEntity() instanceof ServerPlayer player)) {
+            source.sendFailure(Component.literal("This command can only be used by a player."));
+            return 0;
+        }
+        PottySavedData data = PottySavedData.get(player.serverLevel());
+        PottyPlayerData playerData = data.getOrCreate(player.getUUID());
+        ItemStackHandler handler = new ItemStackHandler(1);
+        handler.setStackInSlot(0, playerData.getEquippedDiaper().copy());
+
+        MenuProvider provider = new MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable("container.crinklecraft.diaper_slot");
+            }
+
+            @Override
+            public net.minecraft.world.inventory.AbstractContainerMenu createMenu(int containerId, Inventory playerInv, Player p) {
+                return new DiaperSlotMenu(containerId, playerInv, handler, ContainerLevelAccess.create(player.level(), player.blockPosition()), player);
+            }
+        };
+        player.openMenu(provider);
         return 1;
     }
 

@@ -17,6 +17,8 @@ public class ModSounds {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(CrinkleCraft.MOD_ID, name)));
     }
 
+    public static final RegistryObject<SoundEvent> STUFFIE_SQUEAK = registerSoundEvent("stuffie_squeak");
+
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);
     }

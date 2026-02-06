@@ -18,12 +18,11 @@ public class ModItems {
     public static final RegistryObject<Item> PULLUPS = ItemRegistryHelper.registerDiaper(ITEMS, "pullups", 1);
     public static final RegistryObject<Item> BABY_BOTTLE = ItemRegistryHelper.registerBabyBottle(ITEMS, "baby_bottle");
     public static final RegistryObject<Item> SIPPIE_CUP = ItemRegistryHelper.registerSippieCup(ITEMS, "sippie_cup");
-    public static final RegistryObject<Item> STUFFIE = ItemRegistryHelper.registerStuffie(ITEMS, "stuffie");
+    public static final RegistryObject<Item> STUFFIE_BROWN_BEAR = ItemRegistryHelper.registerStuffie(ITEMS, "stuffie_brown_bear");
+    public static final RegistryObject<Item> STUFFIE_BLUE_SHARK = ItemRegistryHelper.registerStuffie(ITEMS, "stuffie_blue_shark");
     public static final RegistryObject<Item> PACIFIER = ItemRegistryHelper.registerPacifier(ITEMS, "pacifier");
     public static final RegistryObject<Item> POTTY_CHART = ITEMS.register("potty_chart",
             () -> new net.eli.crinklecraft.item.custom.PottyChartItem(new Item.Properties()));
-    public static final RegistryObject<Item> DIAPER_ARMOR = ITEMS.register("diaper_armor",
-            () -> new net.eli.crinklecraft.item.custom.DiaperArmorItem(new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(15))));
     public static final RegistryObject<Item> MITTENS = ITEMS.register("mittens",
             () -> new MittensItem(ModArmorMaterials.MITTENS_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(8))));

@@ -30,6 +30,9 @@ public class ModClientEvents {
         if (CrinkleCraft.ClientModEvents.CHOSE_DIAPER.consumeClick()) {
             mc.player.connection.sendCommand("crinklecraft diaper");
         }
+        if (CrinkleCraft.ClientModEvents.DIAPER_SLOT.consumeClick()) {
+            mc.player.connection.sendCommand("crinklecraft diaper_slot");
+        }
     }
 
     /** Spawn yellow dripping particles when players with Wet effect walk. */

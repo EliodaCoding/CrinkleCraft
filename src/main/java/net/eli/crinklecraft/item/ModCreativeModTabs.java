@@ -18,11 +18,11 @@ public class ModCreativeModTabs {
                     .title(Component.translatable("creativetab.crinklecraft.main"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.DIAPER.get());
-                        pOutput.accept(ModItems.DIAPER_ARMOR.get());
                         pOutput.accept(ModItems.PULLUPS.get());
                         pOutput.accept(ModItems.BABY_BOTTLE.get());
                         pOutput.accept(ModItems.SIPPIE_CUP.get());
-                        pOutput.accept(ModItems.STUFFIE.get());
+                        pOutput.accept(ModItems.STUFFIE_BROWN_BEAR.get());
+                        pOutput.accept(ModItems.STUFFIE_BLUE_SHARK.get());
                         pOutput.accept(ModItems.PACIFIER.get());
                         pOutput.accept(ModItems.POTTY_CHART.get());
                         pOutput.accept(ModItems.MITTENS.get());

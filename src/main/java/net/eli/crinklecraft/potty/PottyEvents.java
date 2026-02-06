@@ -121,14 +121,7 @@ public class PottyEvents {
             overused = di.isFullyUsed(diaper);
             if (!overused) {
                 di.useOne(diaper);
-                if (di.isFullyUsed(diaper)) {
-                    playerData.setEquippedDiaper(ItemStack.EMPTY);
-                    player.getInventory().armor.set(1, playerData.getStoredLeggings().copy());
-                    playerData.setStoredLeggings(ItemStack.EMPTY);
-                    if (!player.getInventory().add(diaper)) {
-                        player.drop(diaper, false);
-                    }
-                }
+                playerData.setEquippedDiaper(diaper); // keep diaper in slot even when fully used
                 data.markDirty();
             }
         }

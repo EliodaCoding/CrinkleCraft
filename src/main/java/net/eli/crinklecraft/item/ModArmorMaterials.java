@@ -19,16 +19,6 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ModArmorMaterials {
-    // Diaper (leggings slot display only - no protection)
-    public static final Holder<ArmorMaterial> DIAPER_ARMOR_MATERIAL = register("diaper", Util.make(new EnumMap<>(ArmorItem.Type.class),
-            attribute -> {
-                attribute.put(ArmorItem.Type.BOOTS, 0);
-                attribute.put(ArmorItem.Type.LEGGINGS, 0);
-                attribute.put(ArmorItem.Type.CHESTPLATE, 0);
-                attribute.put(ArmorItem.Type.HELMET, 0);
-                attribute.put(ArmorItem.Type.BODY, 0);
-            }), 0, 0f, 0f, () -> Items.LEATHER);
-
     // Mittens - no protection, just for effect
     public static final Holder<ArmorMaterial> MITTENS_ARMOR_MATERIAL = register("mittens", Util.make(new EnumMap<>(ArmorItem.Type.class),
             attribute -> {
