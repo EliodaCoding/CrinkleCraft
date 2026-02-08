@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.util.datafix.DataFixTypes;
@@ -47,6 +48,14 @@ public class PottySavedData extends SavedData {
             pd.setAccidentCount(entry.contains("accident_count") ? entry.getInt("accident_count") : 0);
             if (entry.contains("diaper"))
                 pd.setEquippedDiaper(ItemStack.parse(registries, entry.getCompound("diaper")).orElse(ItemStack.EMPTY));
+            if (entry.contains("pacifier"))
+                pd.setEquippedPacifier(ItemStack.parse(registries, entry.getCompound("pacifier")).orElse(ItemStack.EMPTY));
+            if (entry.contains("mittens"))
+                pd.setEquippedMittens(ItemStack.parse(registries, entry.getCompound("mittens")).orElse(ItemStack.EMPTY));
+            if (entry.contains("onesie"))
+                pd.setEquippedOnesie(ItemStack.parse(registries, entry.getCompound("onesie")).orElse(ItemStack.EMPTY));
+            if (entry.contains("magic_regen_tick"))
+                pd.setLastMagicDiaperRegenTick(entry.getLong("magic_regen_tick"));
             data.playerData.put(uuid, pd);
         }
         return data;
@@ -68,6 +77,14 @@ public class PottySavedData extends SavedData {
             entry.putInt("accident_count", e.getValue().getAccidentCount());
             if (!e.getValue().getEquippedDiaper().isEmpty())
                 entry.put("diaper", e.getValue().getEquippedDiaper().save(registries));
+            if (!e.getValue().getEquippedPacifier().isEmpty())
+                entry.put("pacifier", e.getValue().getEquippedPacifier().save(registries));
+            if (!e.getValue().getEquippedMittens().isEmpty())
+                entry.put("mittens", e.getValue().getEquippedMittens().save(registries));
+            if (!e.getValue().getEquippedOnesie().isEmpty())
+                entry.put("onesie", e.getValue().getEquippedOnesie().save(registries));
+            if (e.getValue().getLastMagicDiaperRegenTick() != 0)
+                entry.putLong("magic_regen_tick", e.getValue().getLastMagicDiaperRegenTick());
             list.add(entry);
         }
         tag.put("players", list);
@@ -88,5 +105,10 @@ public class PottySavedData extends SavedData {
     public static PottySavedData get(ServerLevel level) {
         ServerLevel overworld = level.getServer().overworld();
         return overworld.getDataStorage().computeIfAbsent(factory(), DATA_NAME);
+    }
+
+    /** Convenience: get player's potty data. */
+    public static PottyPlayerData getPlayerData(ServerPlayer player) {
+        return get(player.serverLevel()).getOrCreate(player.getUUID());
     }
 }

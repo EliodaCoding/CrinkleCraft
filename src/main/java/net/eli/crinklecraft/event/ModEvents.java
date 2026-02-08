@@ -2,12 +2,18 @@ package net.eli.crinklecraft.event;
 
 import net.eli.crinklecraft.CrinkleCraft;
 import net.eli.crinklecraft.effect.ComfortedEffect;
+import net.eli.crinklecraft.util.AdvancementHelper;
 import net.eli.crinklecraft.effect.ModEffects;
+import net.eli.crinklecraft.item.custom.DiaperItem;
 import net.eli.crinklecraft.item.custom.MittensItem;
+import net.eli.crinklecraft.item.custom.PacifierItem;
 import net.eli.crinklecraft.item.custom.StuffieItem;
 import net.eli.crinklecraft.potty.PottySavedData;
 import net.eli.crinklecraft.potty.PottyPlayerData;
 import net.minecraft.core.Holder;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,10 +38,26 @@ public class ModEvents {
     private static final int COMFORTED_DURATION_TICKS = 15 * 20;     // 15 seconds
     private static final Map<UUID, Integer> stuffieHoldTicks = new HashMap<>();
 
-    /** True if player has mittens in chestplate slot (blocks all interactions). */
+    /** True if player has mittens equipped in curio slot (blocks all interactions). Server-only for data. */
     private static boolean isWearingMittens(Player player) {
-        ItemStack chest = player.getInventory().getArmor(2);
-        return !chest.isEmpty() && chest.getItem() instanceof MittensItem;
+        if (!(player instanceof ServerPlayer sp)) return false;
+        ItemStack m = PottySavedData.getPlayerData(sp).getEquippedMittens();
+        return !m.isEmpty() && m.getItem() instanceof MittensItem;
+    }
+
+    /** True if player is holding a stuffie in main or off hand. */
+    private static boolean isHoldingStuffie(Player player) {
+        ItemStack main = player.getMainHandItem();
+        ItemStack off = player.getOffhandItem();
+        return (!main.isEmpty() && main.getItem() instanceof StuffieItem)
+                || (!off.isEmpty() && off.getItem() instanceof StuffieItem);
+    }
+
+    /** True if player has pacifier equipped in curio slot. Server-only for data. */
+    public static boolean hasPacifierEquipped(Player player) {
+        if (!(player instanceof ServerPlayer sp)) return false;
+        ItemStack p = PottySavedData.getPlayerData(sp).getEquippedPacifier();
+        return !p.isEmpty() && p.getItem() instanceof PacifierItem;
     }
 
     // Stuffie: hold for 15 sec then get Comforted for 15 sec (no spam)
@@ -43,16 +65,13 @@ public class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
         if (!(event.player instanceof ServerPlayer player)) return;
-        ItemStack main = player.getMainHandItem();
-        ItemStack off = player.getOffhandItem();
-        boolean holdingStuffie = (!main.isEmpty() && main.getItem() instanceof StuffieItem)
-                || (!off.isEmpty() && off.getItem() instanceof StuffieItem);
 
         int ticks = stuffieHoldTicks.getOrDefault(player.getUUID(), 0);
-        if (holdingStuffie) {
+        if (isHoldingStuffie(player)) {
             ticks++;
             if (ticks >= STUFFIE_HOLD_TICKS_REQUIRED) {
-                player.addEffect(new MobEffectInstance(Holder.direct(ModEffects.COMFORTED_EFFECT.get()), COMFORTED_DURATION_TICKS, 0, true, true));
+                ModEffects.applyComforted(player, COMFORTED_DURATION_TICKS);
+                AdvancementHelper.grant(player, AdvancementHelper.COMFY);
                 ticks = 0;
             }
             stuffieHoldTicks.put(player.getUUID(), ticks);
@@ -67,6 +86,20 @@ public class ModEvents {
         if (isWearingMittens(event.getEntity())) {
             event.setUseBlock(Event.Result.DENY);
             event.setUseItem(Event.Result.DENY);
+            return;
+        }
+        // Washing: right-click water with washable diaper to reset uses
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+            var level = serverPlayer.level();
+            var pos = event.getPos();
+            if (level.getBlockState(pos).getBlock() == Blocks.WATER) {
+                var stack = serverPlayer.getItemInHand(event.getHand());
+                if (!stack.isEmpty() && stack.getItem() instanceof DiaperItem di && di.isWashable(stack)) {
+                    di.setUses(stack, 0);
+                    level.playSound(null, pos, SoundEvents.SLIME_SQUISH, SoundSource.PLAYERS, 0.6f, 1f);
+                    event.setCanceled(true);
+                }
+            }
         }
     }
 
@@ -86,14 +119,12 @@ public class ModEvents {
         // Shift + empty hand: unequip diaper from custom slot
         Player player = event.getEntity();
         if (player.isShiftKeyDown() && player.getMainHandItem().isEmpty() && player.getOffhandItem().isEmpty()
-                && player.level() instanceof net.minecraft.server.level.ServerLevel serverLevel
                 && player instanceof ServerPlayer serverPlayer) {
-            PottySavedData data = PottySavedData.get(serverLevel);
-            PottyPlayerData playerData = data.getOrCreate(serverPlayer.getUUID());
+            PottyPlayerData playerData = PottySavedData.getPlayerData(serverPlayer);
             ItemStack diaper = playerData.getEquippedDiaper();
             if (!diaper.isEmpty()) {
                 playerData.setEquippedDiaper(ItemStack.EMPTY);
-                data.markDirty();
+                PottySavedData.get(serverPlayer.serverLevel()).markDirty();
                 if (!player.getInventory().add(diaper)) {
                     player.drop(diaper, false);
                 }
@@ -133,6 +164,9 @@ public class ModEvents {
     public static void onMobEffectRemove(MobEffectEvent.Remove event) {
         if (event.getEffect() == ModEffects.COMFORTED_EFFECT.get() && event.getEntity() instanceof Player player) {
             ComfortedEffect.clearPlayerData(player.getUUID());
+        }
+        if (event.getEffect() == ModEffects.RASH_EFFECT.get() && event.getEntity() instanceof Player player) {
+            net.eli.crinklecraft.effect.RashEffect.clearPlayerData(player.getUUID());
         }
     }
 }

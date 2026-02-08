@@ -1,7 +1,7 @@
 package net.eli.crinklecraft.event;
 
 import net.eli.crinklecraft.CrinkleCraft;
-import net.eli.crinklecraft.item.custom.PacifierItem;
+import net.eli.crinklecraft.event.ModEvents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -23,8 +23,7 @@ public class ChatEvents {
     @SubscribeEvent
     public static void onServerChat(ServerChatEvent event) {
         ServerPlayer player = event.getPlayer();
-        ItemStack offhand = player.getOffhandItem();
-        if (offhand.isEmpty() || !(offhand.getItem() instanceof PacifierItem)) return;
+        if (!ModEvents.hasPacifierEquipped(player)) return;
 
         String raw = event.getRawText().trim();
         if (raw.isEmpty()) return;

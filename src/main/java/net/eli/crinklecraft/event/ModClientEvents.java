@@ -30,8 +30,8 @@ public class ModClientEvents {
         if (CrinkleCraft.ClientModEvents.CHOSE_DIAPER.consumeClick()) {
             mc.player.connection.sendCommand("crinklecraft diaper");
         }
-        if (CrinkleCraft.ClientModEvents.DIAPER_SLOT.consumeClick()) {
-            mc.player.connection.sendCommand("crinklecraft diaper_slot");
+        if (CrinkleCraft.ClientModEvents.CRINKLECRAFT_SLOTS.consumeClick()) {
+            mc.player.connection.sendCommand("crinklecraft slots");
         }
     }
 

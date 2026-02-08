@@ -71,8 +71,8 @@ public class CrinkleCraft {
                 com.mojang.blaze3d.platform.InputConstants.Type.KEYSYM,
                 org.lwjgl.glfw.GLFW.GLFW_KEY_G,
                 "key.categories.crinklecraft");
-        public static final net.minecraft.client.KeyMapping DIAPER_SLOT = new net.minecraft.client.KeyMapping(
-                "key.crinklecraft.diaper_slot",
+        public static final net.minecraft.client.KeyMapping CRINKLECRAFT_SLOTS = new net.minecraft.client.KeyMapping(
+                "key.crinklecraft.slots",
                 com.mojang.blaze3d.platform.InputConstants.Type.KEYSYM,
                 org.lwjgl.glfw.GLFW.GLFW_KEY_B,
                 "key.categories.crinklecraft");
@@ -81,15 +81,15 @@ public class CrinkleCraft {
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
             event.enqueueWork(() -> net.minecraft.client.gui.screens.MenuScreens.register(
-                    net.eli.crinklecraft.menu.ModMenuTypes.DIAPER_SLOT.get(),
-                    net.eli.crinklecraft.client.DiaperSlotScreen::new));
+                    net.eli.crinklecraft.menu.ModMenuTypes.CRINKLECRAFT_SLOTS.get(),
+                    net.eli.crinklecraft.client.CrinkleCraftSlotsScreen::new));
         }
 
         @SubscribeEvent
         public static void registerKeyMappings(net.minecraftforge.client.event.RegisterKeyMappingsEvent event) {
             event.register(HOLD_IT);
             event.register(CHOSE_DIAPER);
-            event.register(DIAPER_SLOT);
+            event.register(CRINKLECRAFT_SLOTS);
         }
     }
 }

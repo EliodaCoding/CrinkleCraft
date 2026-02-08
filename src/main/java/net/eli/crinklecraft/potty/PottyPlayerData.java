@@ -1,5 +1,7 @@
 package net.eli.crinklecraft.potty;
 
+import net.eli.crinklecraft.Config;
+import net.eli.crinklecraft.item.custom.DiaperItem;
 import net.minecraft.world.item.ItemStack;
 
 /**
@@ -49,6 +51,14 @@ public class PottyPlayerData {
     private float pottyCheckThreshold;
     /** Equipped diaper (custom slot). Serialized in PottySavedData. */
     private ItemStack equippedDiaper;
+    /** Equipped pacifier (custom slot). Serialized in PottySavedData. */
+    private ItemStack equippedPacifier;
+    /** Equipped mittens (custom slot). Serialized in PottySavedData. */
+    private ItemStack equippedMittens;
+    /** Equipped onesie (custom slot). Serialized in PottySavedData. */
+    private ItemStack equippedOnesie;
+    /** Last game tick when magic diaper restored one use (for regen cooldown). Serialized in PottySavedData. */
+    private long lastMagicDiaperRegenTick;
     /** Temporary boost to pee fill after drinking (not persisted). */
     private int peeBoostTicks;
     private float peeBoostMultiplier;
@@ -78,6 +88,10 @@ public class PottyPlayerData {
         this.pottyCheckIsPee = true;
         this.pottyCheckThreshold = 0;
         this.equippedDiaper = ItemStack.EMPTY;
+        this.equippedPacifier = ItemStack.EMPTY;
+        this.equippedMittens = ItemStack.EMPTY;
+        this.equippedOnesie = ItemStack.EMPTY;
+        this.lastMagicDiaperRegenTick = 0;
         this.peeBoostTicks = 0;
         this.peeBoostMultiplier = 1f;
         this.successCount = 0;
@@ -115,7 +129,7 @@ public class PottyPlayerData {
 
     /** Called when the player succeeds a potty check (e.g. used potty in time). Increases continence. */
     public void onPottyCheckSuccess() {
-        onPottyCheckSuccess(CONTINENCE_ON_SUCCESS);
+        onPottyCheckSuccess((float) Config.continenceOnSuccess);
     }
 
     /** Same as {@link #onPottyCheckSuccess()} with a custom delta (e.g. from config). */
@@ -126,7 +140,7 @@ public class PottyPlayerData {
 
     /** Called when the player fails a potty check (accident). Decreases continence. */
     public void onPottyCheckFail() {
-        onPottyCheckFail(CONTINENCE_ON_FAIL);
+        onPottyCheckFail((float) Config.continenceOnFail);
     }
 
     /** Same as {@link #onPottyCheckFail()} with a custom delta (e.g. from config). */
@@ -137,7 +151,7 @@ public class PottyPlayerData {
 
     /** Called when the player deliberately pees (or messes) in their diaper during a potty check. Lowers continence (habit/dependence). */
     public void onChoseToUseDiaperDuringPottyCheck() {
-        onChoseToUseDiaperDuringPottyCheck(CONTINENCE_ON_CHOSE_DIAPER);
+        onChoseToUseDiaperDuringPottyCheck((float) Config.continenceOnChoseDiaper);
     }
 
     /** Same as {@link #onChoseToUseDiaperDuringPottyCheck()} with a custom delta (e.g. from config). */
@@ -191,6 +205,25 @@ public class PottyPlayerData {
 
     public ItemStack getEquippedDiaper() { return equippedDiaper == null ? ItemStack.EMPTY : equippedDiaper; }
     public void setEquippedDiaper(ItemStack stack) { this.equippedDiaper = stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
+
+    public ItemStack getEquippedPacifier() { return equippedPacifier == null ? ItemStack.EMPTY : equippedPacifier; }
+    public void setEquippedPacifier(ItemStack stack) { this.equippedPacifier = stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack.copy(); }
+
+    public ItemStack getEquippedMittens() { return equippedMittens == null ? ItemStack.EMPTY : equippedMittens; }
+    public void setEquippedMittens(ItemStack stack) { this.equippedMittens = stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack.copy(); }
+
+    public ItemStack getEquippedOnesie() { return equippedOnesie == null ? ItemStack.EMPTY : equippedOnesie; }
+    public void setEquippedOnesie(ItemStack stack) { this.equippedOnesie = stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack.copy(); }
+
+    public long getLastMagicDiaperRegenTick() { return lastMagicDiaperRegenTick; }
+    public void setLastMagicDiaperRegenTick(long v) { this.lastMagicDiaperRegenTick = v; }
+
+    /** Returns true if the player has a usable equipped diaper (non-empty, DiaperItem, not fully used). */
+    public boolean hasUsableDiaper() {
+        ItemStack diaper = getEquippedDiaper();
+        if (diaper.isEmpty() || !(diaper.getItem() instanceof DiaperItem di)) return false;
+        return !di.isFullyUsed(diaper);
+    }
 
     private static float clamp(float v) {
         return Math.max(0f, Math.min(MAX_GAUGE, v));

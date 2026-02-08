@@ -1,6 +1,9 @@
 package net.eli.crinklecraft.item.custom;
 
 import net.eli.crinklecraft.component.ModDataComponentTypes;
+import net.eli.crinklecraft.effect.ModEffects;
+import net.eli.crinklecraft.util.AdvancementHelper;
+import net.eli.crinklecraft.potty.PottyPlayerData;
 import net.eli.crinklecraft.potty.PottySavedData;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -45,6 +48,22 @@ public class DiaperItem extends Item {
         return getUses(stack) >= getMaxUses(stack);
     }
 
+    /** Set uses (consumed charges) clamped to [0, getMaxUses(stack)]. */
+    public void setUses(ItemStack stack, int uses) {
+        stack.set(ModDataComponentTypes.DIAPER_USES.get(), Math.max(0, Math.min(uses, getMaxUses(stack))));
+    }
+
+    /** Restore one use (reduce consumed count by 1). Only if getUses(stack) > 0. */
+    public void restoreOneUse(ItemStack stack) {
+        int u = getUses(stack);
+        if (u > 0) setUses(stack, u - 1);
+    }
+
+    /** Whether this diaper can be washed (cloth, training pants). Override in subclasses. */
+    public boolean isWashable(ItemStack stack) {
+        return false;
+    }
+
     /** Use one charge (e.g. absorbed accident). Returns true if diaper is now used up. */
     public boolean useOne(ItemStack stack) {
         int u = getUses(stack);
@@ -71,15 +90,16 @@ public class DiaperItem extends Item {
         if (!(level instanceof ServerLevel serverLevel) || !(player instanceof ServerPlayer serverPlayer))
             return InteractionResultHolder.pass(stack);
 
-        var data = PottySavedData.get(serverLevel);
-        var playerData = data.getOrCreate(serverPlayer.getUUID());
+        PottyPlayerData playerData = PottySavedData.getPlayerData(serverPlayer);
 
         if (playerData.getEquippedDiaper().isEmpty()) {
             ItemStack toEquip = stack.copyWithCount(1);
             playerData.setEquippedDiaper(toEquip);
             stack.shrink(1);
-            serverPlayer.removeEffect(net.minecraft.core.Holder.direct(net.eli.crinklecraft.effect.ModEffects.WET_EFFECT.get()));
-            data.markDirty();
+            AdvancementHelper.grant(serverPlayer, AdvancementHelper.WELL_PREPARED);
+            ModEffects.removeWet(serverPlayer);
+            ModEffects.removeRash(serverPlayer);
+            PottySavedData.get(serverLevel).markDirty();
             return InteractionResultHolder.success(player.getItemInHand(hand));
         }
 

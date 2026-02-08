@@ -119,11 +119,10 @@ public class BabyBottleItem extends Item {
 
         // Potty mechanic: drinking increases pee and/or speeds up pee fill for a bit
         if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
-            var data = net.eli.crinklecraft.potty.PottySavedData.get(serverPlayer.serverLevel());
-            var pd = data.getOrCreate(serverPlayer.getUUID());
+            var pd = net.eli.crinklecraft.potty.PottySavedData.getPlayerData(serverPlayer);
             pd.addPee(PEE_ON_DRINK);
             pd.applyPeeBoost(PEE_BOOST_MULTIPLIER, PEE_BOOST_DURATION_TICKS);
-            data.markDirty();
+            net.eli.crinklecraft.potty.PottySavedData.get(serverPlayer.serverLevel()).markDirty();
         }
         return stack;
     }

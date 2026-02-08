@@ -19,15 +19,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ModArmorMaterials {
-    // Mittens - no protection, just for effect
-    public static final Holder<ArmorMaterial> MITTENS_ARMOR_MATERIAL = register("mittens", Util.make(new EnumMap<>(ArmorItem.Type.class),
-            attribute -> {
-                attribute.put(ArmorItem.Type.BOOTS, 0);
-                attribute.put(ArmorItem.Type.LEGGINGS, 0);
-                attribute.put(ArmorItem.Type.CHESTPLATE, 1);
-                attribute.put(ArmorItem.Type.HELMET, 0);
-                attribute.put(ArmorItem.Type.BODY, 1);
-            }), 5, 0f, 0f, () -> Items.LEATHER);
+    // Reserved for future armor materials (mittens now use curio slot)
 
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> typeProtection,
                                                   int enchantability, float toughness, float knockbackResistance,

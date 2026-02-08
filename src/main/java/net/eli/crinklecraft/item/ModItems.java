@@ -1,8 +1,11 @@
 package net.eli.crinklecraft.item;
 
 import net.eli.crinklecraft.CrinkleCraft;
+import net.eli.crinklecraft.item.custom.ClothDiaperItem;
+import net.eli.crinklecraft.item.custom.MagicDiaperItem;
 import net.eli.crinklecraft.item.custom.MittensItem;
-import net.minecraft.world.item.ArmorItem;
+import net.eli.crinklecraft.item.custom.OnesieItem;
+import net.eli.crinklecraft.item.custom.TrainingPantsItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,8 +27,15 @@ public class ModItems {
     public static final RegistryObject<Item> POTTY_CHART = ITEMS.register("potty_chart",
             () -> new net.eli.crinklecraft.item.custom.PottyChartItem(new Item.Properties()));
     public static final RegistryObject<Item> MITTENS = ITEMS.register("mittens",
-            () -> new MittensItem(ModArmorMaterials.MITTENS_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(8))));
+            () -> new MittensItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> CLOTH_DIAPER = ITEMS.register("cloth_diaper",
+            () -> new ClothDiaperItem(new Item.Properties()));
+    public static final RegistryObject<Item> TRAINING_PANTS = ITEMS.register("training_pants",
+            () -> new TrainingPantsItem(new Item.Properties()));
+    public static final RegistryObject<Item> MAGIC_DIAPER = ITEMS.register("magic_diaper",
+            () -> new MagicDiaperItem(new Item.Properties()));
+    public static final RegistryObject<Item> ONESIE = ITEMS.register("onesie",
+            () -> new OnesieItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -1,6 +1,8 @@
 package net.eli.crinklecraft.item.custom;
 
+import net.eli.crinklecraft.potty.CrinkleCraftCommand;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -24,10 +26,8 @@ public class PottyChartItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (!level.isClientSide() && player.getServer() != null) {
-            player.getServer().getCommands().performPrefixedCommand(
-                    player.createCommandSourceStack().withSuppressedOutput(),
-                    "crinklecraft chart");
+        if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
+            CrinkleCraftCommand.runCommandAsPlayer(serverPlayer, "crinklecraft chart");
         }
         return InteractionResultHolder.success(stack);
     }

@@ -1,18 +1,14 @@
 package net.eli.crinklecraft.item.custom;
 
-import net.eli.crinklecraft.item.ModArmorMaterials;
-import net.minecraft.core.Holder;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 
 /**
- * Mittens worn in chestplate slot. When worn, prevent the player from interacting with blocks and entities.
- * (Actual blocking is done in ModEvents.)
+ * Mittens worn in a custom curio slot (not armor). When equipped, prevent the player
+ * from interacting with blocks and entities. Blocking is done in ModEvents.
  */
-public class MittensItem extends ArmorItem {
+public class MittensItem extends Item {
 
-    public MittensItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
-        super(material, type, properties);
+    public MittensItem(Properties properties) {
+        super(properties.stacksTo(1));
     }
 }

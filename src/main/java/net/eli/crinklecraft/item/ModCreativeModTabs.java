@@ -26,6 +26,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PACIFIER.get());
                         pOutput.accept(ModItems.POTTY_CHART.get());
                         pOutput.accept(ModItems.MITTENS.get());
+                        pOutput.accept(ModItems.CLOTH_DIAPER.get());
+                        pOutput.accept(ModItems.TRAINING_PANTS.get());
+                        pOutput.accept(ModItems.MAGIC_DIAPER.get());
+                        pOutput.accept(ModItems.ONESIE.get());
                     })
                     .build());
 

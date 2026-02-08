@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "crinklecraft:cloth_diaper"},
+    {"item": "minecraft:water_bucket"}
+  ],
+  "result": {
+    "id": "crinklecraft:cloth_diaper",
+    "count": 1
+  }
+}

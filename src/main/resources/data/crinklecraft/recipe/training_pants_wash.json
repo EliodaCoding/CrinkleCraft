@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "crinklecraft:training_pants"},
+    {"item": "minecraft:water_bucket"}
+  ],
+  "result": {
+    "id": "crinklecraft:training_pants",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "id": "crinklecraft:stuffie_brown_bear",
+      "count": 1
+    },
+    "title": {"translate": "advancement.crinklecraft.comfy.title"},
+    "description": {"translate": "advancement.crinklecraft.comfy.description"},
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:story/root",
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [["trigger"]]
+}
